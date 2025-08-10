@@ -1,0 +1,39 @@
+{
+  "name": "todo-planner-electron",
+  "version": "1.0.0",
+  "description": "Todo Planner \u2014 Electron + React starter with per-task timers and weekly planner",
+  "main": "electron.main.js",
+  "scripts": {
+    "dev": "concurrently \"vite\" \"wait-on http://localhost:5173 && electron .\"",
+    "start": "electron .",
+    "build": "vite build",
+    "dist": "electron-builder --win"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "electron": "^26.0.0",
+    "vite": "^5.0.0",
+    "electron-builder": "^24.6.0",
+    "concurrently": "^8.0.0",
+    "wait-on": "^7.0.1"
+  },
+  "build": {
+    "appId": "com.example.todo-planner",
+    "files": [
+      "dist/**",
+      "electron.main.js",
+      "preload.js",
+      "package.json",
+      "public/**"
+    ],
+    "win": {
+      "target": [
+        "nsis"
+      ],
+      "icon": "public/assets/icon.ico"
+    }
+  }
+}
